@@ -1,5 +1,5 @@
 /*
- * Title: CHange Name Script File
+ * Title: Change Name Script File
  * Description: A vanilla JS Implementation of a simple Counter that adds 1 to each user click
  * Author: Fahad Bin Munir
  * Date: 29/11/2021
