@@ -56,11 +56,11 @@ const MyReactElement = () => {
 ReactDOM.render(<MyReactElement />, rootContainer);
 
 /* 
-    if we put the JS abobe the render function the it won;t work, cause rendering is happening before the execution of JS code.
+    if we put the JS abobe the render function the it won't work, cause rendering is happening before the execution of JS code.
     that's why we have to put this after the render function of React.
     
     
-    ** although we don;t havre to write our JS code like this, there's no point to write this kinda code if you're using React or any frontend framework.
+    ** although we don't havre to write our JS code like this, there's no point to write this kinda code if you're using React or any frontend framework.
     cause we don't have to access DOM directlty, Luckily, we won't have to anymore. React will use somekinda virtual DOM to manipulate DOM for us. That's the beuty of React.
 */
 

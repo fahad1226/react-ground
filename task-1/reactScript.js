@@ -1,6 +1,6 @@
 const MyElement = () => {
     /**  
-        this is state functionality that React gives us to manage ourt application state.
+        this is state functionality that React gives us to manage our application state.
         the number state is an @array we can destructure the array to initialize the value and set the value.
     */
     const [number, setNumber] = React.useState(0);
@@ -9,7 +9,7 @@ const MyElement = () => {
             <h2 id="name">Fahad</h2>
             <h1 id="display">{number}</h1>
             <div>
-                {/* if we call the function like this onClick={setNumber(number + 1)} this will call himself in the runtime, we don't want that, we want the function to be called when the button is clicked. that's why we have to make it as an arrow function */}
+                {/* if we call the function like this onClick={setNumber(number + 1)} this will call itself in the runtime, we don't want that, we want the function to be called when the button is clicked. that's why we have to make it as an arrow function */}
                 <button id="button" onClick={() => setNumber(number + 1)}>
                     Increment +
                 </button>
