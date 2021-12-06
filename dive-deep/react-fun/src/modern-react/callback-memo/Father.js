@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Button from "./Button";
 import Dummy from "./Dummy";
 import ShowCount from "./ShowCount";
@@ -15,6 +15,22 @@ const Father = () => {
     const incrementByFive = useCallback(() => {
         setCount2((prevCount) => prevCount + 5);
     }, []);
+
+    /** this is costly function, I just make this costly by looping over millions of times, but it can be costly API request or some
+     *  kinda computation that takes pretty much longer than usal.
+     *  The problem is not the cost of the function, problem is this function will be recalculted every time I made any changes to my
+     *  state, props or whatsoever. So, this is a huge performance issue, we have to fix it.
+     *  In this case, we can use another react hook to solve this problem. @useMemo by using this function we can fix that.
+     *  @useMemo will take anonymous function as it's first parameter and will invoke only when the particular state of that function
+     *  changes.
+     *
+     */
+    const isEvenOrOdd = useMemo(() => {
+        let i = 0;
+        console.log("running the costly function");
+        while (i < 1000000) i += 1; // costly operation
+        return count1 % 2 === 0;
+    }, [count1]);
 
     /** In React if the props or state changes then the component will re render itself, it's the protocol of ReactJS.
      *  But here we can see that <Title /> component should not re render because the changes of the state or prop should not bother *
@@ -41,6 +57,7 @@ const Father = () => {
             <Dummy />
             <ShowCount count={count1} title="Counter 1" />
             <Button handleClick={incrementByOne}>Increment by one</Button>
+            <span>{isEvenOrOdd ? "Even" : "Odd"}</span>
             <hr />
             <ShowCount count={count2} title="Counter 2" />
             <Button handleClick={incrementByFive}>Increment by five</Button>
