@@ -1,12 +1,14 @@
 import { useState } from "react";
-import "./App.css";
-import Father from "./modern-react/callback-memo/Father";
+import "./assets/css/global.css";
+import Logo from "./modern-react/react-css/Logo";
+
 function App() {
     const [show, setShow] = useState(true);
 
     return (
         <div className="App">
-            <Father />
+            <h1>Learn React!</h1>
+            <Logo />
 
             {/* <div> {show && <Effect />}</div>
 
